@@ -89,6 +89,22 @@ public class LinkedList {
         }
         return false;
     }
-    
+        public int removeLast(){
+        if(last == null){
+            return -1;
+        }
+        int a = last.element;
+        last = last.left;
+        last.right = null;
+        return a;
+    }
+    public int removeFirst(){
+        if(first ==null) return -1;
+        int a = first.element;
+        first = first.right;
+         first.left = null;
+         return a;
+    }
     
 }
+
