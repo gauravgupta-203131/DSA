@@ -34,7 +34,7 @@ public class BST {
     Node insertedTraverse(int key,Node root){
         if(root == null){
         root = new Node(key);
-      //  return root;
+        return root;
         }
         else if(root.element>key)
             root.left = insertedTraverse(key,root.left);
@@ -149,4 +149,25 @@ public class BST {
         min = cur.element;
         return min;
     }
+        private Node getNode(int key,Node root){
+        if(root == null){
+            return null;
+        }
+        if(root.element>key){
+            return getNode(key,root.left);
+        }
+        if(root.element<key)
+        return getNode(key,root.right);
+    
+        return root;
+    }
+    int height(int key){
+        return getHeight(getNode(key,root));
+    }
+    int getHeight(Node root){
+        if(root == null)
+        return 0;
+        return 1+Math.max(getHeight(root.left),getHeight(root.right));
+    }
 }
+
